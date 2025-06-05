@@ -99,7 +99,7 @@ The commercial space race is highly competitive.
   
 **Author:**  
 Kardelen Geçkin  
-[LinkedIn](https://www.linkedin.com/in/kgeckin/)
+[LinkedIn](https://www.linkedin.com/in/krgckn/)
 
 ---
 
