@@ -1,111 +1,72 @@
-# 🚀 SpaceX Falcon 9 First Stage Landing Prediction
+<div align="center">
 
-## Final presentation
+<img src="docs/assets/cover.svg" width="100%" alt="SpaceX Falcon 9 landing prediction capstone cover" />
 
-The original IBM / Coursera 47-slide template has been completed with code evidence, SQL outputs, visualizations and linked notebooks. The files are staged for upload.
+**An applied data science case study exploring whether Falcon 9 first stages can be predicted to land successfully.**
 
-**[Module 5 presentation and evidence guide](Module5/README.md)**
+[Explore the notebooks](#explore-the-materials) · [Results](#results) · [Final presentation](Module5/README.md)
 
-## Outline
+</div>
 
-- [Summary](#summary)
-- [Introduction](#introduction)
-- [Methodology](#methodology)
-- [Results](#results)
-- [Conclusion](#conclusion)
-- [Appendix & References](#appendix--references)
+## Overview
 
----
+This educational IBM Data Science capstone follows a workflow from launch data collection to exploratory analysis, interactive visualization and binary landing outcome prediction.
 
-## Summary
+## What it includes
 
-This project is the capstone for the IBM Data Science Professional Certificate. The aim is to predict whether the Falcon 9 first stage will successfully land, helping both SpaceX and potential competitors to optimize launch operations and costs.
+* SpaceX API collection and Wikipedia web scraping.
+* Data wrangling, visual EDA and SQL queries.
+* Folium launch site maps and a Plotly Dash dashboard.
+* Classifier comparison using Logistic Regression, SVM, Decision Tree and KNN.
+* A [Module 5 presentation guide](Module5/README.md) with evidence sources and submission checks.
 
-- **Data Sources:**  
-  SpaceX public API, Wikipedia, and course-provided CSV files.
-- **Data Wrangling:**  
-  Collected and cleaned data to extract landing outcomes as labels for machine learning.
-- **Visualization:**  
-  Used SQL queries, static and interactive charts, Folium maps, and a Plotly Dash dashboard.
-- **Prediction:**  
-  Applied and compared Logistic Regression, SVM, Decision Tree, and K-Nearest Neighbors (KNN) models.
+## Explore the materials
 
----
+| Module | Work |
+| --- | --- |
+| [01 / Collection](Module1/README.md) | API, web scraping, data cleaning and CSV files |
+| [02 / SQL](Module2/README.md) | Exploratory SQL analysis |
+| [03 / Visualization](Module3/README.md) | Maps, dashboard source and saved figures |
+| [04 / Machine learning](Module4/README.md) | Prediction and model evaluation notebook |
+| [05 / Presentation](Module5/README.md) | Coursera template deliverables and evidence index |
 
-## Introduction
+## Getting started
 
-The commercial space race is highly competitive.  
-**Objective:** Predict the success of Falcon 9 first stage landings to estimate costs and optimize operations.
+Clone the repository and open a notebook in a compatible Jupyter environment. Review the imports and source file paths in each module. A single verified dependency lockfile and fully automated workflow are not currently provided.
 
-**Key Questions:**
-- What patterns can be found in historical Falcon 9 launch data?
-- Which ML model gives the highest prediction accuracy for landings?
-- What insights can be drawn from launch sites, payloads, orbits, and booster versions?
+For the dashboard, review the source and accompanying CSV in [Module 3](Module3/README.md). Do not assume the saved outputs reflect today's SpaceX launch records.
 
----
+## Repository structure
 
-## Methodology
-
-1. **Data Collection**  
-   - Downloaded launch data via SpaceX API, Wikipedia tables, and CSV files.
-2. **Data Cleaning & Wrangling**  
-   - Reformatted mission outcomes into binary labels (success/failure).
-   - Processed categorical variables and handled missing values.
-3. **Exploratory Data Analysis (EDA)**  
-   - Visualized data trends by launch site, payload, orbit, and date.
-   - Used both SQL and Python for querying and plotting.
-4. **Geospatial Analysis**  
-   - Used Folium maps to analyze launch site proximities and outcomes.
-5. **Interactive Dashboard**  
-   - Built with Plotly Dash for interactive data exploration and visualization.
-6. **Predictive Modeling**  
-   - Split data into train/test sets.
-   - Trained and tuned Logistic Regression, SVM, Decision Tree, and KNN.
-   - Compared models using test accuracy and confusion matrices.
-
----
+~~~text
+IBM_Applied_Data_Science_Capstone/
+├── Module1/             # Collection and wrangling
+├── Module2/             # SQL analysis
+├── Module3/             # Maps, Dash and visual evidence
+├── Module4/             # Classifier training and evaluation
+├── Module5/             # Final presentation guide
+├── docs/assets/         # Shared cover
+└── README.md
+~~~
 
 ## Results
 
-- **EDA Insights:**  
-  - Success rates vary significantly by launch site and orbit type.
-  - Later flights show a higher landing success rate in the saved course dataset.
-  - Payload and booster categories show differing outcomes in the exploratory charts.
-- **Dashboard Insights:**  
-  - Interactive site and payload filtering visualized patterns in success/failure rates.
-  - KSC LC-39A had the most successful landings; CCAFS SLC-40 had the highest success rate.
-- **Model Performance:**  
-  - All four models reported **83.3% test accuracy** on a small 18-record holdout set.
-  - The saved Decision Tree confusion matrix contains 3 false positives and no false negatives. This small sample is insufficient for a production claim.
+All four classifiers reported **83.3% test accuracy** on a small held-out sample of **18 observations** in the saved notebook. Cross-validation scores differed, with the highest saved mean associated with Decision Tree.
 
----
+The dataset and splitting strategy limit interpretation. The notebook fit feature scaling before the training and test split, which introduces potential preprocessing leakage. A reproducible reevaluation should place preprocessing inside a cross-validation pipeline.
 
-## Conclusion
+## Validation
 
-- SpaceX Falcon 9 landing success rates have significantly improved over time.
-- All evaluated machine learning models provided similar predictive power on this dataset.
-- Visual analysis and models support exploratory discussion, but they do not constitute a validated launch-risk system.
-- **Methodological limitation:** Feature scaling was fit before the train/test split in the saved modeling notebook. Re-evaluation with preprocessing inside cross-validation is recommended to avoid leakage.
+There is not yet a common automated test suite for the full repository. Reproducing the results requires the original input datasets, compatible dependencies and careful notebook execution. Test accuracy is an educational result, not a production performance guarantee.
 
----
+## Architecture & decisions
 
-## Appendix & References
+The modules preserve the order of the IBM course assignments and distinguish collection, SQL, visualization and modeling. The final presentation follows the original IBM and Coursera slide template.
 
-**Key Notebooks & Files:**
-- `Module1/`: Data collection, scraping, wrangling notebooks and CSVs
-- `Module2/`: SQL EDA notebook
-- `Module3/`: Visualization, dashboard code, screenshots
-- `Module4/`: ML modeling and evaluation notebooks
-- [Module5/](Module5/): final presentation guide, delivery files and evidence checklist
+## Security & limitations
 
-**Data Sources:**
-- [SpaceX Public API](https://api.spacexdata.com/)
-- [Wikipedia: List of Falcon 9 and Falcon Heavy launches](https://en.wikipedia.org/wiki/List_of_Falcon_9_and_Falcon_Heavy_launches)
-- IBM Course-provided datasets (CSV)
-  
-**Author:**  
-Kardelen Geçkin  
-[LinkedIn](https://www.linkedin.com/in/krgckn/)
+Do not reuse external data or course media without checking their usage terms. Some visuals were reconstructed from saved CSV data rather than captured from live dashboard sessions. The final presentation binaries must be checked as present before using their GitHub download links.
 
----
+## License
 
+No standalone repository license was found. Third-party course materials and datasets may be subject to additional terms.
