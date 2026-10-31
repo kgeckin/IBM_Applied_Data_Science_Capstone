@@ -1,5 +1,11 @@
 # 🚀 SpaceX Falcon 9 First Stage Landing Prediction
 
+## Final presentation
+
+The original IBM / Coursera 47-slide template has been completed with code evidence, SQL outputs, visualizations and linked notebooks. The files are staged for upload.
+
+**[Module 5 presentation and evidence guide](Module5/README.md)**
+
 ## Outline
 
 - [Summary](#summary)
@@ -51,7 +57,7 @@ The commercial space race is highly competitive.
 4. **Geospatial Analysis**  
    - Used Folium maps to analyze launch site proximities and outcomes.
 5. **Interactive Dashboard**  
-   - Built with Plotly Dash for real-time data exploration and visualization.
+   - Built with Plotly Dash for interactive data exploration and visualization.
 6. **Predictive Modeling**  
    - Split data into train/test sets.
    - Trained and tuned Logistic Regression, SVM, Decision Tree, and KNN.
@@ -63,15 +69,14 @@ The commercial space race is highly competitive.
 
 - **EDA Insights:**  
   - Success rates vary significantly by launch site and orbit type.
-  - Flight number positively correlates with landing success (experience matters!).
-  - The range of 2,000–5,000 kg payloads had the highest landing success.
-  - 'FT' booster version achieved the highest success rate.
+  - Later flights show a higher landing success rate in the saved course dataset.
+  - Payload and booster categories show differing outcomes in the exploratory charts.
 - **Dashboard Insights:**  
   - Interactive site and payload filtering visualized patterns in success/failure rates.
   - KSC LC-39A had the most successful landings; CCAFS SLC-40 had the highest success rate.
 - **Model Performance:**  
-  - All models achieved **83% test accuracy** (Logistic Regression, SVM, Decision Tree, KNN).
-  - Confusion matrices confirmed solid class separation.
+  - All four models reported **83.3% test accuracy** on a small 18-record holdout set.
+  - The saved Decision Tree confusion matrix contains 3 false positives and no false negatives. This small sample is insufficient for a production claim.
 
 ---
 
@@ -79,7 +84,8 @@ The commercial space race is highly competitive.
 
 - SpaceX Falcon 9 landing success rates have significantly improved over time.
 - All evaluated machine learning models provided similar predictive power on this dataset.
-- Data-driven dashboards and visual analytics offer clear business insights and decision support for future launches.
+- Visual analysis and models support exploratory discussion, but they do not constitute a validated launch-risk system.
+- **Methodological limitation:** Feature scaling was fit before the train/test split in the saved modeling notebook. Re-evaluation with preprocessing inside cross-validation is recommended to avoid leakage.
 
 ---
 
@@ -90,7 +96,7 @@ The commercial space race is highly competitive.
 - `Module2/`: SQL EDA notebook
 - `Module3/`: Visualization, dashboard code, screenshots
 - `Module4/`: ML modeling and evaluation notebooks
-- `Module5/`: Final slides, summary visuals
+- [Module5/](Module5/): final presentation guide, delivery files and evidence checklist
 
 **Data Sources:**
 - [SpaceX Public API](https://api.spacexdata.com/)
